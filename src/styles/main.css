@@ -1,0 +1,66 @@
+   :root {
+     --primary: #2a4365;
+     --secondary: #f7fafc;
+     --accent: #4299e1;
+     --text: #1a202c;
+     --light-gray: #edf2f7;
+   }
+   
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+section {
+  padding: 3rem 0;
+}
+
+h1, h2, h3 {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Mobile First Breakpoints */
+@media (min-width: 768px) {
+  main {
+    padding: 2rem;
+  }
+  
+  section {
+    padding: 4rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  main {
+    padding: 3rem;
+  }
+}
+/* Add these to your existing main.css */
+.portfolio-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.portfolio-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
