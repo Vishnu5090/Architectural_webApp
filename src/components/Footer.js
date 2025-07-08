@@ -31,10 +31,10 @@ const Footer = () => {
             Creating innovative architectural solutions that blend functionality with aesthetic excellence.
           </p>
           <div className="social-links">
-            <a href="#" aria-label="Facebook"><FaFacebook /></a>
-            <a href="#" aria-label="Twitter"><FaTwitter /></a>
-            <a href="#" aria-label="Instagram"><FaInstagram /></a>
-            <a href="#" aria-label="LinkedIn"><FaLinkedin /></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebook /></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
           </div>
         </div>
 
@@ -56,7 +56,8 @@ const Footer = () => {
           <ul className="footer-links">
             {services.map((service, index) => (
               <li key={index}>
-                <a href="#">{service}</a>
+                {/* If no navigation is needed, just display as text */}
+                <span>{service}</span>
               </li>
             ))}
           </ul>
@@ -91,9 +92,9 @@ const Footer = () => {
         <div className="container">
           <p>&copy; {new Date().getFullYear()} DesignArch. All rights reserved.</p>
           <div className="legal-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Sitemap</a>
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-of-service">Terms of Service</a>
+            <a href="/sitemap">Sitemap</a>
           </div>
         </div>
       </div>
