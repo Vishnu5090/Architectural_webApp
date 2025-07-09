@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import logo from '../assets/Capture.jpg'; // Replace with your logo path
 import '../styles/components/Navbar.css';
 
 const Navbar = () => {
@@ -6,24 +8,30 @@ const Navbar = () => {
   
   return (
     <nav className="navbar">
-      <div className="container">
-        <div className="logo">DesignArch</div>
+      <div className="nav-container">
+        <div className="logo-wrapper">
+          <img 
+            src={logo} 
+            alt="Company Logo" 
+            className="logo-image"
+            // Ensures black logo remains black
+          />
+          <span className="logo-text">AAKARAA DESIGNS</span>
+        </div>
         
         <div className={`nav-links ${isOpen ? 'open' : ''}`}>
-          <a href="#home" onClick={() => setIsOpen(false)}>Home</a>
-          <a href="#portfolio" onClick={() => setIsOpen(false)}>Portfolio</a>
-          <a href="#services" onClick={() => setIsOpen(false)}>Services</a>
-          <a href="#testimonials" onClick={() => setIsOpen(false)}>Testimonials</a>
-          <a href="#contact" onClick={() => setIsOpen(false)}>Contact</a>
+          <a href="#home">Home</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
         </div>
         
         <button 
-          className={`hamburger ${isOpen ? 'open' : ''}`} 
+          className={`hamburger ${isOpen ? 'open' : ''}`}
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          {isOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
     </nav>

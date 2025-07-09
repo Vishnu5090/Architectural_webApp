@@ -26,7 +26,7 @@ const Footer = () => {
       <div className="footer-container">
         {/* Company Info */}
         <div className="footer-col">
-          <h3 className="footer-logo">DesignArch</h3>
+          <h3 className="footer-logo">AAKARAA DESIGNS</h3>
           <p className="footer-about">
             Creating innovative architectural solutions that blend functionality with aesthetic excellence.
           </p>
