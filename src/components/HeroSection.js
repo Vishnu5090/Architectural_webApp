@@ -6,22 +6,10 @@ import '../styles/components/HeroSection.css';
 // Image and text data
 const heroContent = [
   {
-    title: "Welcome to AAKARAA DESIGNS",
+    title: "Welcome to Aakaraa Designs",
     subtitle: "Where visionary architecture meets exceptional craftsmanship",
-    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d", // Grand entrance/welcome image
+    image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
     cta: "Begin Your Journey"
-  },
-  {
-    title: "Office Spaces",
-    subtitle: "Productive environments with executive elegance",
-    image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36",
-    features: [
-      "Ergonomic workstations",
-      "Modern conference rooms",
-      "Acoustic optimization",
-      "Brand-consistent aesthetics"
-    ],
-    cta: "Explore Office Designs"
   },
   {
     title: "Neo-Classical Interiors",
@@ -40,6 +28,18 @@ const heroContent = [
     subtitle: "Bespoke interiors crafted to perfection",
     image: "https://images.unsplash.com/photo-1600121848594-d8644e57abab",
     cta: "See Interiors"
+  },
+  {
+    title: "Terrace Office",
+    subtitle: "Productive environments with executive elegance",
+    image: "https://lh3.googleusercontent.com/b3Iy8pbFF6WS_SnuDQzl3j1DjILPybcP--fapHtSxWsjAIPJDYl6A1q9_R-jkLBoiXGjW9aC0q61Fq4Pc7KbnbDnHLvZuS4DkVlp8o8=w900-rw",
+    features: [
+      "Ergonomic workstations",
+      "Modern conference rooms",
+      "Acoustic optimization",
+      "Brand-consistent aesthetics"
+    ],
+    cta: "Explore Office Designs"
   }
 ];
 
@@ -96,17 +96,18 @@ const HeroSection = () => {
           </button>
         </div>
 
-        {/* Slide indicators */}
-        <div className="slide-indicators">
-          {heroContent.map((_, index) => (
-            <button
-              key={index}
-              className={`indicator ${index === currentSlide ? 'active' : ''}`}
-              onClick={() => setCurrentSlide(index)}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
+       {/* Remove this entire section */}
+{/* <div className="slide-indicators">
+  {heroContent.map((_, index) => (
+    <button
+      key={index}
+      className={`indicator ${index === currentSlide ? 'active' : ''}`}
+      onClick={() => setCurrentSlide(index)}
+      aria-label={`Go to slide ${index + 1}`}
+    />
+  ))}
+</div> */}
+
       </div>
 
       {/* Scroll hint */}

@@ -115,3 +115,34 @@
 .dark-mode .navbar {
   background-color: #2a4365;
 }
+
+
+.navbar {
+  font-family: 'Montserrat', sans-serif; /* New base font */
+}
+
+.logo-text {
+  font-family: 'Playfair Display', serif; /* Elegant serif for logo */
+  font-size: 1.4rem;
+  font-weight: 700;
+  /* ... other existing logo-text styles */
+}
+
+.nav-links a {
+  font-family: 'Montserrat', sans-serif; /* Clean sans-serif for links */
+  /* ... other existing link styles */
+}
+
+/* Logo Text Styles */
+.logo-text {
+  font-size: 1.4rem; /* Default size */
+  font-weight: 700;
+  color: #333; /* Dark gray for text */
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+  .logo-text {
+    font-size: 1.2rem; /* Reduced size for mobile view */
+  }
+}

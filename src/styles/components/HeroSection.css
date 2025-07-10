@@ -1,4 +1,12 @@
-/* HeroSection.css */
+/* HeroSection.css - Enhanced Modern Button Styles */
+:root {
+  --accent-color: #4299e1;
+  --text-light: #ffffff;
+  --text-lighter: rgba(255,255,255,0.9);
+  --overlay-dark: rgba(0,0,0,0.6);
+  --button-glow: rgba(255, 255, 255, 0.2);
+}
+
 .hero {
   position: relative;
   height: 100vh;
@@ -6,11 +14,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--text-light);
   font-family: 'Poppins', sans-serif;
 }
 
-/* Background Slider */
+/* Background Images */
 .hero-backgrounds {
   position: absolute;
   width: 100%;
@@ -24,21 +32,20 @@
   background-size: cover;
   background-position: center;
   opacity: 0;
-  transition: opacity 1.2s ease-in-out;
+  transition: opacity 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .background-image.active {
   opacity: 1;
 }
 
-/* Overlay */
 .hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+  background: var(--overlay-dark);
 }
 
 /* Content Container */
@@ -48,48 +55,94 @@
   max-width: 1200px;
   padding: 0 20px;
   z-index: 10;
-  text-align: center; /* Center text */
+  text-align: center;
 }
 
-/* Content Styling */
-.hero-content {
-  max-width: 600px;
-  transform: translateY(-50px);
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  color: #fff;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.hero-content p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  opacity: 0.9;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-/* Button Styling */
-.cta-btn {
-  padding: 12px 24px;
-  background: var(--accent-color);
-  color: white;
-  border: none;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
+/* Unified Button Styles */
+.cta-btn, .welcome-btn {
+  position: relative;
+  padding: 15px 35px;
+  font-size: clamp(1rem, 2.1vw, 1.1rem);
+  font-weight: 500;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+  border-radius: 50px;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
+  z-index: 1;
+  border: none;
+  backdrop-filter: blur(5px);
+}
+
+/* Button Shared Hover Effect */
+.cta-btn::before, .welcome-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0.1) 0%, 
+    rgba(255,255,255,0.3) 50%, 
+    rgba(255,255,255,0.1) 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: -1;
+}
+
+.cta-btn:hover::before, 
+.welcome-btn:hover::before {
+  transform: translateX(100%);
+}
+
+/* Primary Button (Blue) */
+.cta-btn {
+  background: linear-gradient(135deg, var(--accent-color) 0%, #2b6cb0 100%);
+  color: white;
+  box-shadow: 0 4px 20px rgba(66, 153, 225, 0.4);
 }
 
 .cta-btn:hover {
-  background: #3182ce;
   transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(66, 153, 225, 0.5);
+}
+
+/* Secondary Button (Border) */
+.welcome-btn {
+  background: transparent;
+  border: 2px solid var(--text-light) !important;
+  color: var(--text-light);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+.welcome-btn:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Text Styles */
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 6px var(--overlay-dark);
+  color: var(--text-light);
+}
+
+.welcome-title {
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--text-light);
+}
+
+.hero-content p {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
 /* Slide Indicators */
@@ -106,7 +159,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255,255,255,0.5);
   border: 2px solid transparent;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -133,7 +186,6 @@
   opacity: 1;
 }
 
-/* Animations */
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateX(-50%) translateY(0);
@@ -149,141 +201,15 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-content h1 {
-    font-size: 2.5rem; /* Adjusted for smaller screens */
+    font-size: 2.5rem;
   }
   
   .hero-content p {
-    font-size: 1rem; /* Adjusted for smaller screens */
+    font-size: 1rem;
   }
   
-  .cta-btn {
-    padding: 10px 20px; /* Adjusted for smaller screens */
-  }
-  
-  .scroll-hint {
-    font-size: 1.2rem; /* Adjusted for smaller screens */
+  .cta-btn, .welcome-btn {
+    padding: 12px 25px;
+    font-size: 0.95rem;
   }
 }
-
-/* Special welcome slide styling */
-.hero-content h1.welcome-title {
-  font-size: 4rem;
-  font-weight:490; /* Increased weight for better visibility */
-  letter-spacing: 2px;
-  margin-bottom: 1.5rem;
-  position: relative;
-  color: var(--text-light);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero-content h1.welcome-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px; /* Increased width for better emphasis */
-  height: 4px; /* Increased height for better visibility */
-  background: var(--accent-color);
-  transition: width 0.4s ease; /* Smooth transition */
-}
-
-.welcome-subtitle {
-  font-size: 1.5rem;
-  font-style: italic;
-  margin-bottom: 3rem;
-  color: var(--text-lighter);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.welcome-btn {
-  background: transparent !important;
-  border: 2.5px solid var(--text-light) !important;
-  padding: 15px 40px !important;
-  font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
-  letter-spacing: 1px;
-  font-weight: 500;
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  position: relative;
-  overflow: hidden;
-  animation: fadeInUp 0.8s 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.welcome-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: 0.5s;
-}
-
-.welcome-btn:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: 0 5px 15px rgba(66, 153, 225, 0.3);
-}
-
-.welcome-btn:hover::before {
-  left: 100%;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes lineExpand {
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    width: 120px;
-    opacity: 1;
-  }
-}
-
-/* Mobile Optimizations */
-@media (max-width: 768px) {
-  .welcome-title {
-    font-size: clamp(2rem, 7vw, 3rem) !important;
-    letter-spacing: 1px;
-  }
-  
-  .welcome-title::after {
-    bottom: -8px;
-    height: 2px;
-  }
-  
-  .welcome-subtitle {
-    margin-bottom: 2rem;
-  }
-  
-  .welcome-btn {
-    padding: 12px 30px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .welcome-title::after {
-    width: 80px;
-  }
-  
-  .welcome-btn {
-    width: 100%;
-    max-width: 220px;
-  }
-}
-
-
-
