@@ -145,31 +145,6 @@
   text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
-/* Slide Indicators */
-.slide-indicators {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
-
-.indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.5);
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.indicator.active {
-  background: white;
-  transform: scale(1.2);
-}
-
 /* Scroll Hint */
 .scroll-hint {
   position: absolute;
@@ -201,15 +176,21 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 2rem; /* Adjusted for smaller screens */
+    margin-bottom: 1rem; /* Reduced margin for better spacing */
   }
   
   .hero-content p {
-    font-size: 1rem;
+    font-size: 1rem; /* Adjusted for smaller screens */
+    margin-bottom: 1.5rem; /* Reduced margin for better spacing */
   }
   
   .cta-btn, .welcome-btn {
-    padding: 12px 25px;
-    font-size: 0.95rem;
+    padding: 12px 30px; /* Increased padding for better touch targets */
+    font-size: 1rem; /* Consistent font size */
+  }
+
+  .scroll-hint {
+    font-size: 1.2rem; /* Adjusted for smaller screens */
   }
 }

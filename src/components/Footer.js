@@ -22,7 +22,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="footer">
+    <footer className="footer" aria-label="Footer">
       <div className="footer-container">
         {/* Company Info */}
         <div className="footer-col">
@@ -30,7 +30,7 @@ const Footer = () => {
           <p className="footer-about">
             Creating innovative architectural solutions that blend functionality with aesthetic excellence.
           </p>
-          <div className="social-links">
+          <div className="social-links" aria-label="Social Media Links">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebook /></a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
@@ -41,7 +41,7 @@ const Footer = () => {
         {/* Quick Links */}
         <div className="footer-col">
           <h4 className="footer-title">Quick Links</h4>
-          <ul className="footer-links">
+          <ul className="footer-links" aria-label="Quick Links">
             {quickLinks.map((link, index) => (
               <li key={index}>
                 <a href={link.href}>{link.name}</a>
@@ -53,10 +53,9 @@ const Footer = () => {
         {/* Services */}
         <div className="footer-col">
           <h4 className="footer-title">Services</h4>
-          <ul className="footer-links">
+          <ul className="footer-links" aria-label="Services">
             {services.map((service, index) => (
               <li key={index}>
-                {/* If no navigation is needed, just display as text */}
                 <span>{service}</span>
               </li>
             ))}
@@ -66,18 +65,19 @@ const Footer = () => {
         {/* Contact Info */}
         <div className="footer-col">
           <h4 className="footer-title">Contact Us</h4>
-          <div className="contact-info">
+          <div className="contact-info" aria-label="Contact Information">
             <div className="contact-item">
               <FaMapMarkerAlt className="contact-icon" />
-              <span>123 Design Street, Creative District, NY 10001</span>
+              <span>S V TOWERS, <br />Mount Poonamallee Rd, <br/> Porur, Chennai-116.</span>
             </div>
             <div className="contact-item">
               <FaPhone className="contact-icon" />
-              <span>+1 (555) 123-4567</span>
+              <span>+91 8056263866 <br/>
+                    +91 8939555582</span>
             </div>
             <div className="contact-item">
               <FaEnvelope className="contact-icon" />
-              <span>info@designarch.com</span>
+              <span>studio@aakaraadesigns.com</span>
             </div>
             <div className="contact-item">
               <FaClock className="contact-icon" />
@@ -90,8 +90,8 @@ const Footer = () => {
       {/* Copyright */}
       <div className="copyright">
         <div className="container">
-          <p>&copy; {new Date().getFullYear()} DesignArch. All rights reserved.</p>
-          <div className="legal-links">
+          <p>&copy; {new Date().getFullYear()} AAKARAA DESIGNS. All rights reserved.</p>
+          <div className="legal-links" aria-label="Legal Links">
             <a href="/privacy-policy">Privacy Policy</a>
             <a href="/terms-of-service">Terms of Service</a>
             <a href="/sitemap">Sitemap</a>

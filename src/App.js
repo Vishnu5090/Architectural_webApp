@@ -6,7 +6,7 @@ import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
-//import AboutUs from './components/AboutUs';
+import AboutUs from './components/AboutUs';
 
 const App = () => {
   return (
@@ -16,6 +16,7 @@ const App = () => {
         <HeroSection />
         <Portfolio />
         <Services />
+        <AboutUs />
         <Testimonials />
         <ContactUs />
       </main>

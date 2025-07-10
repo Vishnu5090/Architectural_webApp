@@ -1,7 +1,7 @@
 /* Footer Styles */
 .footer {
-  background-color: #2a4365;
-  color: #fff;
+  background-color: #f8f9fa; /* Light gray background */
+  color: #343a40; /* Dark gray text for contrast */
   padding-top: 3rem;
   position: relative;
 }
@@ -23,11 +23,11 @@
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #fff;
+  color: #2a4365; /* Dark blue for logo */
 }
 
 .footer-about {
-  color: #cbd5e0;
+  color: #6c757d; /* Medium gray for about text */
   line-height: 1.6;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
@@ -39,20 +39,20 @@
 }
 
 .social-links a {
-  color: #fff;
+  color: #2a4365; /* Dark blue for social links */
   font-size: 1.2rem;
   transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #4299e1;
+  color: #007bff; /* Bright blue on hover */
 }
 
 .footer-title {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
   font-weight: 600;
-  color: #fff;
+  color: #2a4365; /* Dark blue for titles */
   position: relative;
   padding-bottom: 0.5rem;
 }
@@ -64,11 +64,12 @@
   bottom: 0;
   width: 40px;
   height: 2px;
-  background-color: #4299e1;
+  background-color: #007bff; /* Bright blue underline */
 }
 
 .footer-links {
   list-style: none;
+  padding: 0; /* Remove default padding */
 }
 
 .footer-links li {
@@ -76,14 +77,14 @@
 }
 
 .footer-links a {
-  color: #cbd5e0;
+  color: #6c757d; /* Medium gray for footer links */
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 0.95rem;
 }
 
 .footer-links a:hover {
-  color: #4299e1;
+  color: #007bff; /* Bright blue on hover */
 }
 
 .contact-info {
@@ -100,12 +101,12 @@
 
 .contact-icon {
   margin-top: 0.2rem;
-  color: #4299e1;
+  color: #007bff; /* Bright blue for icons */
   min-width: 20px;
 }
 
 .copyright {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1); /* Light overlay for copyright */
   padding: 1.5rem 0;
   text-align: center;
   margin-top: 2rem;
@@ -122,7 +123,7 @@
 }
 
 .copyright p {
-  color: #cbd5e0;
+  color: #6c757d; /* Medium gray for copyright text */
   font-size: 0.9rem;
   margin: 0;
 }
@@ -133,14 +134,14 @@
 }
 
 .legal-links a {
-  color: #cbd5e0;
+  color: #6c757d; /* Medium gray for legal links */
   font-size: 0.85rem;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .legal-links a:hover {
-  color: #4299e1;
+  color: #007bff; /* Bright blue on hover */
 }
 
 /* Responsive Design */

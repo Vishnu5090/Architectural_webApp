@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import logo from '../assets/Capture.jpg'; // Replace with your logo path
+import logo from '../assets/Capture1.png'; // Replace with your logo path
 import '../styles/components/Navbar.css';
 
 const Navbar = () => {
@@ -23,6 +23,8 @@ const Navbar = () => {
           <a href="#home">Home</a>
           <a href="#portfolio">Portfolio</a>
           <a href="#services">Services</a>
+          <a href="#about">About Us</a>
+          <a href="#testimonials">Testimonials</a>
           <a href="#contact">Contact</a>
         </div>
         

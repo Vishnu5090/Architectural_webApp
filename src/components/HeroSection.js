@@ -67,7 +67,7 @@ const HeroSection = () => {
   }, [currentSlide]);
 
   return (
-    <section className="hero" ref={heroRef}>
+    <section className="hero" ref={heroRef} id='home'>
       {/* Background images */}
       <div className="hero-backgrounds">
         {heroContent.map((item, index) => (

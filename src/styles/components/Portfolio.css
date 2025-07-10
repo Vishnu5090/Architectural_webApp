@@ -78,6 +78,13 @@
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.portfolio-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .portfolio-item:hover {
@@ -111,6 +118,7 @@
 .project-title {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
+  color: white; /* Change text color to white */
 }
 
 .project-category {
@@ -119,6 +127,25 @@
   padding: 0.25rem 0.75rem;
   border-radius: 50px;
   font-size: 0.875rem;
+}
+
+/* View Toggle Button */
+.view-toggle-btn {
+  display: block;
+  margin: 2rem auto;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-toggle-btn:hover {
+  background: var(--accent);
+  color: #e2e8f0;
+  transform: translateY(-2px);
 }
 
 /* Responsive Adjustments */
