@@ -6,7 +6,7 @@ import '../styles/components/HeroSection.css';
 // Image and text data
 const heroContent = [
   {
-    title: "Welcome to Aakaraa Designs",
+    title: "<span style='color: #E0E0E0;'>Welcome to </span> <span style='color: #00FFFF;'>Aakaraa Designs</span>",
     subtitle: "Where visionary architecture meets exceptional craftsmanship",
     image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
     cta: "Begin Your Journey"
@@ -85,9 +85,7 @@ const HeroSection = () => {
       {/* Content */}
       <div className="hero-container">
         <div className="hero-content">
-          <h1 className={currentSlide === 0 ? "welcome-title" : ""}>
-            {heroContent[currentSlide].title}
-          </h1>
+          <h1 className={currentSlide === 0 ? "welcome-title" : ""} dangerouslySetInnerHTML={{ __html: heroContent[currentSlide].title }} />
           <p className={currentSlide === 0 ? "welcome-subtitle" : ""}>
             {heroContent[currentSlide].subtitle}
           </p>
@@ -95,19 +93,6 @@ const HeroSection = () => {
             {heroContent[currentSlide].cta}
           </button>
         </div>
-
-       {/* Remove this entire section */}
-{/* <div className="slide-indicators">
-  {heroContent.map((_, index) => (
-    <button
-      key={index}
-      className={`indicator ${index === currentSlide ? 'active' : ''}`}
-      onClick={() => setCurrentSlide(index)}
-      aria-label={`Go to slide ${index + 1}`}
-    />
-  ))}
-</div> */}
-
       </div>
 
       {/* Scroll hint */}

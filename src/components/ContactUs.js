@@ -30,7 +30,7 @@ ${formData.message}
 `;
 
     // Gmail web compose link
-    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=studio@aakaraadesigns.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=aakaraadesigns@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     // Open Gmail in a new tab
     window.open(gmailLink, '_blank');
@@ -65,7 +65,7 @@ ${formData.message}
               <FaPhone className="contact-icon" />
               <div>
                 <h3>Phone</h3>
-                <p>+91 8056263866<br />+91 8939555582</p>
+                <p>+91 8056263866</p>
               </div>
             </div>
 
@@ -73,7 +73,7 @@ ${formData.message}
               <FaEnvelope className="contact-icon" />
               <div>
                 <h3>Email</h3>
-                <p>studio@aakaraadesigns.com</p>
+                <p>aakaraadesigns@gmail.com</p>
               </div>
             </div>
 

@@ -5,9 +5,9 @@ import '../styles/components/AboutUs.css';
 
 const AboutUs = () => {
   const stats = [
-    { icon: <FaAward />, number: '15+', label: 'Years Experience' },
-    { icon: <FaUsers />, number: '200+', label: 'Happy Clients' },
-    { icon: <FaProjectDiagram />, number: '50+', label: 'Projects Completed' }
+    { icon: <FaAward />, number: '5+', label: 'Years Experience' },
+    { icon: <FaUsers />, number: '100+', label: 'Happy Clients' },
+    { icon: <FaProjectDiagram />, number: '40+', label: 'Projects Completed' }
   ];
 
   return (
@@ -15,7 +15,7 @@ const AboutUs = () => {
       <div className="container">
         <div className="about-header">
           <h2>Our Story</h2>
-          <p>Creating spaces that inspire since 2008</p>
+          <p>Creating spaces that inspire since 2020</p>
         </div>
 
         <div className="about-content">
@@ -29,9 +29,11 @@ const AboutUs = () => {
           <div className="about-text">
             <h3>Redefining Architectural Excellence</h3>
             <p>
-              Founded in 2008, DesignArch has grown from a small studio to a leading architectural firm 
-              known for innovative designs that blend functionality with aesthetic beauty. Our team 
-              of award-winning architects and designers bring diverse perspectives to every project.
+             At Aakaraa Designs, we harness the transformative power of architecture. Our name, "Aakaraa," derived from Sanskrit, signifies "form," "shape," and "appearance," reflecting our commitment to creating functional and visually stunning spaces.
+
+With over 5 years of experience, we have become a trusted name in architectural design, serving more than 100 satisfied clients. Our talented team of architects and designers combines diverse perspectives to ensure each project harmonizes creativity with practicality.
+
+At Aakaraa Designs, we don’t just build structures; we shape experiences.
             </p>
 
             <div className="stats-grid">
@@ -45,10 +47,6 @@ const AboutUs = () => {
                 </div>
               ))}
             </div>
-
-            <button className="learn-more-btn">
-              Learn More About Our Team
-            </button>
           </div>
         </div>
       </div>

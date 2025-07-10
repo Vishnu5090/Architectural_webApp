@@ -78,13 +78,30 @@
   color: var(--primary);
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .services-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 1.5rem; /* Adjust gap between cards */
   }
   
   .service-card {
-    padding: 1.5rem;
+    padding: 1.5rem; /* Reduced padding for mobile */
+  }
+
+  .services-header h2 {
+    font-size: 1.8rem; /* Smaller font size for mobile */
+  }
+
+  .service-card h3 {
+    font-size: 1.5rem; /* Smaller font size for service titles */
+  }
+
+  .service-icon {
+    font-size: 2rem; /* Smaller icon size for mobile */
+  }
+
+  .service-card p {
+    font-size: 0.9rem; /* Smaller font size for service descriptions */
   }
 }

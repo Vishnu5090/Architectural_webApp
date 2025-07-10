@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/components/Portfolio.css';
-import im from '../assets/terreceoffice.png';
+//import im from '../assets/terreceoffice.png';
 
 
 const projects = [
@@ -8,7 +8,7 @@ const projects = [
     id: 1,
     title: "Modern Villa",
     category: "Residential",
-    image: im
+    image: "https://nigerianhouseplans.com/apartment-building-design-ref-cs1047/"
   },
   {
     id: 2,
