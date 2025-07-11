@@ -25,7 +25,8 @@ main {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 0 1rem 2rem 1rem;
+  
 }
 
 section {
@@ -40,7 +41,7 @@ h1, h2, h3 {
 /* Mobile First Breakpoints */
 @media (min-width: 768px) {
   main {
-    padding: 2rem;
+    padding: 0 2rem 2rem 2rem;
   }
   
   section {
@@ -50,7 +51,7 @@ h1, h2, h3 {
 
 @media (min-width: 1024px) {
   main {
-    padding: 3rem;
+    padding: 0 3rem 3rem 3rem;
   }
 }
 /* Add these to your existing main.css */

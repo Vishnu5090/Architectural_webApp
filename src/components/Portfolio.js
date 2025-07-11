@@ -1,75 +1,80 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import '../styles/components/Portfolio.css';
-//import im from '../assets/terreceoffice.png';
-
+import Residential from '../assets/Residential/32.jpg';
+import Commercial from '../assets/Commercial.jpg';
+import Apartment from '../assets/Apartment.jpg';
+import Iyyapnthangal from '../assets/Residential/Residential.jpg';
+import Arun from '../assets/Residential/2.jpg';
+import Anand from '../assets/interior/Anand.jpg';
 
 const projects = [
   {
     id: 1,
-    title: "Modern Villa",
+    title: "Mr. Raj Residence at ECR",
     category: "Residential",
-    image: "https://nigerianhouseplans.com/apartment-building-design-ref-cs1047/"
+    image: Residential,
   },
   {
     id: 2,
-    title: "Office Complex",
+    title: "Commercial Building at Porur",
     category: "Commercial",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGUZCweePomyJDIX8EY4OVXDr0slk77O8UxCp2-iwsvmWPVVpPAgk7Ah98_TPQrLcshO8&usqp=CAU"
+    image: Commercial,
   },
   {
     id: 3,
-    title: "Luxury Apartment",
+    title: "Apartment at Porur",
     category: "Residential",
-    image: "https://media.designcafe.com/wp-content/uploads/2022/07/15170350/luxury-home-design-on-budget.jpg"
+    image: Apartment,
   },
   {
     id: 4,
-    title: "Shopping Mall",
-    category: "Commercial",
-    image: "https://example.com/mall.jpg"
+    title: "Mr. Arun Residence at Ashok Pillar",
+    category: "Residential",
+    image: Arun,
   },
   {
     id: 5,
-    title: "Urban Loft",
+    title: "Mr. Anand at Kotturpuram",
     category: "Interior",
-    image: "https://example.com/loft.jpg"
+    image: Anand,
   },
   {
     id: 6,
-    title: "Hotel Lobby",
-    category: "Interior",
-    image: "https://cdn0.weddingwire.in/vendor/5493/3_2/960/jpg/hotel-design-hotel-chennai-by-justa-chennai-hotel-space-3_15_365493-161831561312802.jpeg"
-  },
-  {
-    id: 7,
-    title: "Cozy Cabin",
+    title: "Residence at Iyyappanthangal",
     category: "Residential",
-    image: "https://example.com/cabin.jpg"
+    image: Iyyapnthangal,
   },
-  {
-    id: 8,
-    title: "Modern Office",
-    category: "Commercial",
-    image: "https://example.com/modern-office.jpg"
-  },
-  {
-    id: 9,
-    title: "Stylish Interior",
-    category: "Interior",
-    image: "https://example.com/stylish-interior.jpg"
-  }
 ];
 
 const Portfolio = () => {
   const portfolioRef = useRef(null);
   const [visibleProjects, setVisibleProjects] = useState(6);
   const [activeFilter, setActiveFilter] = useState('All');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filteredProjects = activeFilter === 'All' 
     ? projects 
     : projects.filter(project => project.category === activeFilter);
 
   const displayProjects = filteredProjects.slice(0, visibleProjects);
+
+  const goToPrev = useCallback(() => {
+    setCurrentImageIndex(prevIndex => 
+      prevIndex === 0 ? filteredProjects.length - 1 : prevIndex - 1
+    );
+  }, [filteredProjects.length]);
+
+  const goToNext = useCallback(() => {
+    setCurrentImageIndex(prevIndex => 
+      prevIndex === filteredProjects.length - 1 ? 0 : prevIndex + 1
+    );
+  }, [filteredProjects.length]);
+
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+    document.body.style.overflow = 'auto';
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -90,6 +95,29 @@ const Portfolio = () => {
     setVisibleProjects(prev => prev === 6 ? filteredProjects.length : 6);
   };
 
+  const openModal = useCallback((index) => {
+    setCurrentImageIndex(index);
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!isModalOpen) return;
+      
+      if (e.key === 'Escape') {
+        closeModal();
+      } else if (e.key === 'ArrowLeft') {
+        goToPrev();
+      } else if (e.key === 'ArrowRight') {
+        goToNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isModalOpen, goToPrev, goToNext, closeModal]);
+
   return (
     <section className="portfolio" id="portfolio">
       <div className="container">
@@ -105,7 +133,7 @@ const Portfolio = () => {
               className={`filter-btn ${activeFilter === category ? 'active' : ''}`}
               onClick={() => {
                 setActiveFilter(category);
-                setVisibleProjects(6); // Reset to show 6 projects when filter changes
+                setVisibleProjects(6);
               }}
             >
               {category}
@@ -114,8 +142,12 @@ const Portfolio = () => {
         </div>
 
         <div className="portfolio-grid" ref={portfolioRef}>
-          {displayProjects.map(project => (
-            <div className="portfolio-item" key={project.id}>
+          {displayProjects.map((project, index) => (
+            <div 
+              className="portfolio-item" 
+              key={project.id}
+              onClick={() => openModal(filteredProjects.findIndex(p => p.id === project.id))}
+            >
               <img src={project.image} alt={project.title} className="portfolio-img" />
               <div className="portfolio-overlay">
                 <h3 className="project-title">{project.title}</h3>
@@ -133,6 +165,30 @@ const Portfolio = () => {
           >
             {visibleProjects === 6 ? 'View All' : 'See Less'}
           </button>
+        )}
+
+        {isModalOpen && (
+          <div className="image-modal">
+            <div className="modal-overlay" onClick={closeModal}></div>
+            <div className="modal-content">
+              <button className="close-btn" onClick={closeModal}>&times;</button>
+              <div className="modal-image-container">
+                <img 
+                  src={filteredProjects[currentImageIndex].image} 
+                  alt={filteredProjects[currentImageIndex].title} 
+                  className="modal-image"
+                />
+                <div className="image-info-bottom-right">
+                  <h3>{filteredProjects[currentImageIndex].title}</h3>
+                  <span className="project-category">
+                    {filteredProjects[currentImageIndex].category}
+                  </span>
+                </div>
+              </div>
+              <button className="nav-btn prev-btn" onClick={goToPrev}>&#10094;</button>
+              <button className="nav-btn next-btn" onClick={goToNext}>&#10095;</button>
+            </div>
+          </div>
         )}
       </div>
     </section>
