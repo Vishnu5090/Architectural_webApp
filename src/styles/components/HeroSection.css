@@ -59,7 +59,7 @@
 }
 
 /* Unified Button Styles */
-.cta-btn, .welcome-btn {
+ .welcome-btn {
   position: relative;
   padding: 15px 35px;
   font-size: clamp(1rem, 2.1vw, 1.1rem);
@@ -75,7 +75,7 @@
 }
 
 /* Button Shared Hover Effect */
-.cta-btn::before, .welcome-btn::before {
+ .welcome-btn::before {
   content: '';
   position: absolute;
   top: 0;
@@ -91,22 +91,13 @@
   z-index: -1;
 }
 
-.cta-btn:hover::before, 
+
 .welcome-btn:hover::before {
   transform: translateX(100%);
 }
 
-/* Primary Button (Blue) */
-.cta-btn {
-  background: linear-gradient(135deg, var(--accent-color) 0%, #2b6cb0 100%);
-  color: white;
-  box-shadow: 0 4px 20px rgba(66, 153, 225, 0.4);
-}
 
-.cta-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 25px rgba(66, 153, 225, 0.5);
-}
+
 
 /* Secondary Button (Border) */
 .welcome-btn {
@@ -185,7 +176,7 @@
     margin-bottom: 1.5rem; /* Reduced margin for better spacing */
   }
   
-  .cta-btn, .welcome-btn {
+  .welcome-btn {
     padding: 12px 30px; /* Increased padding for better touch targets */
     font-size: 1rem; /* Consistent font size */
   }

@@ -21,13 +21,11 @@ const heroContent = [
       "Luxurious fabrics",
       "Classical proportions"
     ],
-    cta: "See Classical Styles"
   },
   {
     title: "Interior Solutions",
     subtitle: "Bespoke interiors crafted to perfection",
     image: "https://images.unsplash.com/photo-1600121848594-d8644e57abab",
-    cta: "See Interiors"
   },
   {
     title: "Terrace Office",
@@ -39,7 +37,6 @@ const heroContent = [
       "Acoustic optimization",
       "Brand-consistent aesthetics"
     ],
-    cta: "Explore Office Designs"
   }
 ];
 
@@ -67,11 +64,11 @@ const HeroSection = () => {
   }, [currentSlide]);
 
   return (
-    <section className="hero" ref={heroRef} id='home'>
+    <section className="hero" ref={heroRef} id="home">
       {/* Background images */}
       <div className="hero-backgrounds">
         {heroContent.map((item, index) => (
-          <div 
+          <div
             key={index}
             className={`background-image ${index === currentSlide ? 'active' : ''}`}
             style={{ backgroundImage: `url(${item.image})` }}
@@ -85,13 +82,19 @@ const HeroSection = () => {
       {/* Content */}
       <div className="hero-container">
         <div className="hero-content">
-          <h1 className={currentSlide === 0 ? "welcome-title" : ""} dangerouslySetInnerHTML={{ __html: heroContent[currentSlide].title }} />
-          <p className={currentSlide === 0 ? "welcome-subtitle" : ""}>
+          <h1
+            className={currentSlide === 0 ? 'welcome-title' : ''}
+            dangerouslySetInnerHTML={{ __html: heroContent[currentSlide].title }}
+          />
+          <p className={currentSlide === 0 ? 'welcome-subtitle' : ''}>
             {heroContent[currentSlide].subtitle}
           </p>
-          <button className={`cta-btn ${currentSlide === 0 ? "welcome-btn" : ""}`}>
-            {heroContent[currentSlide].cta}
-          </button>
+          {/* Render button only on welcome slide */}
+          {currentSlide === 0 && (
+            <button className="welcome-btn">
+              {heroContent[currentSlide].cta}
+            </button>
+          )}
         </div>
       </div>
 
