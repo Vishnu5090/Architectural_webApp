@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import logo from '../assets/logo.png'; // Replace with your logo path
+import logo from '../assets/logo.png'; 
 import '../styles/components/Navbar.css';
 
 const Navbar = () => {
@@ -15,11 +15,14 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="nav-container">
         <div className="logo-wrapper">
-          <img 
-            src={logo} 
-            alt="Company Logo" 
-            className="logo-image"
-          />
+          {logo && (
+              <img 
+                src={logo} 
+                alt="Company Logo" 
+                className="logo-image"
+              />
+          )}
+
           <span className="logo-text">AAKARAA DESIGNS</span>
         </div>
         

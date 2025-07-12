@@ -60,7 +60,7 @@
   text-align: center;
 }
 
-/* Navigation Arrows - Hidden on welcome page */
+/* Navigation Arrows */
 .hero-nav {
   position: absolute;
   top: 50%;
@@ -79,14 +79,6 @@
   justify-content: center;
   transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   backdrop-filter: blur(5px);
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Show arrows only when not on welcome page */
-.hero:not(.welcome-page) .hero-nav {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .hero-nav:hover {
@@ -226,26 +218,8 @@
     font-size: 1.2rem;
   }
 
-  /* Navigation Arrows */
+  /* Hide navigation arrows on mobile view */
   .hero-nav {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-  }
-  
-  .hero-nav-left {
-    left: 15px;
-  }
-  
-  .hero-nav-right {
-    right: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-nav {
-    width: 35px;
-    height: 35px;
-    font-size: 1rem;
+    display: none; /* Hide navigation arrows */
   }
 }

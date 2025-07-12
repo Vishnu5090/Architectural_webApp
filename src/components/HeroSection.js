@@ -98,7 +98,7 @@ const HeroSection = () => {
       {/* Overlay */}
       <div className="hero-overlay"></div>
 
-      {/* Navigation Arrows - Hidden on welcome page (index 0) */}
+      {/* Navigation Arrows */}
       {currentSlide !== 0 && (
         <>
           <button className="hero-nav hero-nav-left" onClick={goToPrev}>
