@@ -91,7 +91,10 @@ const HeroSection = () => {
           </p>
           {/* Render button only on welcome slide */}
           {currentSlide === 0 && (
-            <button className="welcome-btn">
+            <button 
+              className="welcome-btn" 
+              onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+            >
               {heroContent[currentSlide].cta}
             </button>
           )}

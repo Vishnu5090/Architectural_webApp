@@ -4,7 +4,7 @@
   --text-light: #ffffff;
   --text-lighter: rgba(255,255,255,0.9);
   --overlay-dark: rgba(0,0,0,0.6);
-  --button-glow: rgba(255, 255, 255, 0.2);
+  --a-glow: rgba(255, 255, 255, 0.2);
 }
 
 .hero {
