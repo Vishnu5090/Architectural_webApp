@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaPaintBrush, FaHome, FaEye, FaProjectDiagram, FaBuilding, FaTools } from 'react-icons/fa';
 import '../styles/components/Services.css';
-import modernresi from '../assets/Services/modern-resi.jpg';  
+import modernresi from '../assets/Services/modern-resi.png';  
 import LuxuryInteriorDesign from '../assets/Services/Luxury-Interior-Design.png';
 import LuxuryExDesign from '../assets/Services/image.png';
 

@@ -1,10 +1,12 @@
-/* HeroSection.css - Enhanced Modern Button Styles */
+/* HeroSection.css - Enhanced Modern Styles with Navigation */
 :root {
   --accent-color: #4299e1;
   --text-light: #ffffff;
   --text-lighter: rgba(255,255,255,0.9);
   --overlay-dark: rgba(0,0,0,0.6);
-  --a-glow: rgba(255, 255, 255, 0.2);
+  --button-glow: rgba(255, 255, 255, 0.2);
+  --nav-bg: rgba(255, 255, 255, 0.2);
+  --nav-hover-bg: rgba(255, 255, 255, 0.3);
 }
 
 .hero {
@@ -58,8 +60,50 @@
   text-align: center;
 }
 
-/* Unified Button Styles */
- .welcome-btn {
+/* Navigation Arrows - Hidden on welcome page */
+.hero-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: var(--nav-bg);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Show arrows only when not on welcome page */
+.hero:not(.welcome-page) .hero-nav {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hero-nav:hover {
+  background: var(--nav-hover-bg);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.hero-nav-left {
+  left: 30px;
+}
+
+.hero-nav-right {
+  right: 30px;
+}
+
+/* Button Styles */
+.welcome-btn {
   position: relative;
   padding: 15px 35px;
   font-size: clamp(1rem, 2.1vw, 1.1rem);
@@ -74,8 +118,8 @@
   backdrop-filter: blur(5px);
 }
 
-/* Button Shared Hover Effect */
- .welcome-btn::before {
+/* Button Hover Effect */
+.welcome-btn::before {
   content: '';
   position: absolute;
   top: 0;
@@ -91,13 +135,9 @@
   z-index: -1;
 }
 
-
 .welcome-btn:hover::before {
   transform: translateX(100%);
 }
-
-
-
 
 /* Secondary Button (Border) */
 .welcome-btn {
@@ -146,6 +186,7 @@
   font-size: 1.5rem;
   opacity: 0.7;
   animation: bounce 2s infinite;
+  z-index: 10;
 }
 
 .scroll-hint:hover {
@@ -167,21 +208,44 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-content h1 {
-    font-size: 2rem; /* Adjusted for smaller screens */
-    margin-bottom: 1rem; /* Reduced margin for better spacing */
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
   
   .hero-content p {
-    font-size: 1rem; /* Adjusted for smaller screens */
-    margin-bottom: 1.5rem; /* Reduced margin for better spacing */
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
   
   .welcome-btn {
-    padding: 12px 30px; /* Increased padding for better touch targets */
-    font-size: 1rem; /* Consistent font size */
+    padding: 12px 30px;
+    font-size: 1rem;
   }
 
   .scroll-hint {
-    font-size: 1.2rem; /* Adjusted for smaller screens */
+    font-size: 1.2rem;
+  }
+
+  /* Navigation Arrows */
+  .hero-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .hero-nav-left {
+    left: 15px;
+  }
+  
+  .hero-nav-right {
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-nav {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
   }
 }

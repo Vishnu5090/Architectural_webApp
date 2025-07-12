@@ -1,90 +1,32 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import '../styles/components/Portfolio.css';
 import Residential from '../assets/Residential/32.jpg';
 import Commercial from '../assets/Commercial.jpg';
 import Apartment from '../assets/Apartment.jpg';
 import Iyyapnthangal from '../assets/Residential/Residential.jpg';
-import Arun from '../assets/Residential/2.jpg';
+import Arun from '../assets/Residential/2.png';
 import Anand from '../assets/interior/Anand.jpg';
-import sb1 from '../assets/interior/sb1.jpg';
+import sb1 from '../assets/interior/sb1.png';
 import image1 from '../assets/interior/image1.png';
-import ed6 from '../assets/Residential/ed6.jpg';
+import ed6 from '../assets/Residential/ed6.png';
 import ed90 from '../assets/Residential/image2.png';
 import Commercial1 from '../assets/image.png';
 
 const projects = [
-  {
-    id: 1,
-    title: "Mr. Raj Residence at ECR",
-    category: "Residential",
-    image: Residential,
-  },
-  {
-    id: 2,
-    title: "Commercial Building at Porur",
-    category: "Commercial",
-    image: Commercial,
-  },
-  {
-    id: 3,
-    title: "Apartment at Porur",
-    category: "Residential",
-    image: Apartment,
-  },
-  {
-    id: 4,
-    title: "Mr. Arun Residence at Ashok Pillar",
-    category: "Residential",
-    image: Arun,
-  },
-  {
-    id: 5,
-    title: "Mr. Anand at Kotturpuram",
-    category: "Interior",
-    image: Anand,
-  },
-  {
-    id: 6,
-    title: "Residence at Iyyappanthangal",
-    category: "Residential",
-    image: Iyyapnthangal,
-  },
-  {
-    id: 7,
-    title: "Apartment",
-    category: "Residential",
-    image: ed6,
-  },
-  {
-    id: 8,
-    title: "complex design",
-    category: "Commercial",
-    image: Commercial1,
-  },
-  {
-    id: 9,
-    title: "Bedroom Design",
-    category: "Residential",
-    image: sb1,
-  },
-  {
-    id: 10,
-    title: "WABI - SABI Style",
-    category: "Residential",
-    image: image1,
-  },
-  {
-    id: 11,
-    title: "Terrace Office",
-    category: "Interior",
-    image: ed90,
-  },
-  {
-    id: 12,
-    title: "Bedroom Design",
-    category: "Residential",
-    image: sb1,
-  }
+  { id: 1, title: "Mr. Raj Residence at ECR", category: "Residential", image: Residential },
+  { id: 2, title: "Commercial Building at Porur", category: "Commercial", image: Commercial },
+  { id: 3, title: "Apartment at Porur", category: "Residential", image: Apartment },
+  { id: 4, title: "Mr. Arun Residence at Ashok Pillar", category: "Residential", image: Arun },
+  { id: 5, title: "Mr. Anand at Kotturpuram", category: "Interior", image: Anand },
+  { id: 6, title: "Residence at Iyyappanthangal", category: "Residential", image: Iyyapnthangal },
+  { id: 7, title: "Apartment", category: "Residential", image: ed6 },
+  { id: 8, title: "complex design", category: "Commercial", image: Commercial1 },
+  { id: 9, title: "Bedroom Design", category: "Residential", image: sb1 },
+  { id: 10, title: "WABI - SABI Style", category: "Residential", image: image1 },
+  { id: 11, title: "Terrace Office", category: "Interior", image: ed90 },
+  { id: 12, title: "Bedroom Design", category: "Residential", image: sb1 }
 ];
 
 const Portfolio = () => {
@@ -94,20 +36,20 @@ const Portfolio = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
+  const filteredProjects = activeFilter === 'All'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
   const displayProjects = filteredProjects.slice(0, visibleProjects);
 
   const goToPrev = useCallback(() => {
-    setCurrentImageIndex(prevIndex => 
+    setCurrentImageIndex(prevIndex =>
       prevIndex === 0 ? filteredProjects.length - 1 : prevIndex - 1
     );
   }, [filteredProjects.length]);
 
   const goToNext = useCallback(() => {
-    setCurrentImageIndex(prevIndex => 
+    setCurrentImageIndex(prevIndex =>
       prevIndex === filteredProjects.length - 1 ? 0 : prevIndex + 1
     );
   }, [filteredProjects.length]);
@@ -145,7 +87,7 @@ const Portfolio = () => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!isModalOpen) return;
-      
+
       if (e.key === 'Escape') {
         closeModal();
       } else if (e.key === 'ArrowLeft') {
@@ -169,7 +111,7 @@ const Portfolio = () => {
 
         <div className="portfolio-filters">
           {['All', 'Residential', 'Commercial', 'Interior'].map(category => (
-            <button 
+            <button
               key={category}
               className={`filter-btn ${activeFilter === category ? 'active' : ''}`}
               onClick={() => {
@@ -184,12 +126,17 @@ const Portfolio = () => {
 
         <div className="portfolio-grid" ref={portfolioRef}>
           {displayProjects.map((project, index) => (
-            <div 
-              className="portfolio-item" 
+            <div
+              className="portfolio-item"
               key={project.id}
               onClick={() => openModal(filteredProjects.findIndex(p => p.id === project.id))}
             >
-              <img src={project.image} alt={project.title} className="portfolio-img" />
+              <LazyLoadImage
+                src={project.image}
+                alt={project.title}
+                effect="blur"
+                className="portfolio-img"
+              />
               <div className="portfolio-overlay">
                 <h3 className="project-title">{project.title}</h3>
                 <span className="project-category">{project.category}</span>
@@ -198,18 +145,17 @@ const Portfolio = () => {
           ))}
         </div>
 
-       {filteredProjects.length > 6 && (
-  <div className="button-container"> {/* Add this div to center the button */}
-    <button 
-      onClick={toggleView} 
-      className="view-toggle-btn" 
-      aria-label={visibleProjects === 6 ? 'View all projects' : 'See less projects'}
-    >
-      {visibleProjects === 6 ? 'View All' : 'See Less'}
-    </button>
-  </div>
-)}
-
+        {filteredProjects.length > 6 && (
+          <div className="button-container">
+            <button
+              onClick={toggleView}
+              className="view-toggle-btn"
+              aria-label={visibleProjects === 6 ? 'View all projects' : 'See less projects'}
+            >
+              {visibleProjects === 6 ? 'View All' : 'See Less'}
+            </button>
+          </div>
+        )}
 
         {isModalOpen && (
           <div className="image-modal">
@@ -217,9 +163,10 @@ const Portfolio = () => {
             <div className="modal-content">
               <button className="close-btn" onClick={closeModal}>&times;</button>
               <div className="modal-image-container">
-                <img 
-                  src={filteredProjects[currentImageIndex].image} 
-                  alt={filteredProjects[currentImageIndex].title} 
+                <LazyLoadImage
+                  src={filteredProjects[currentImageIndex].image}
+                  alt={filteredProjects[currentImageIndex].title}
+                  effect="blur"
                   className="modal-image"
                 />
                 <div className="image-info-bottom-right">

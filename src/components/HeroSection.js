@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaChevronDown } from 'react-icons/fa';
+import { FaChevronDown, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import gsap from 'gsap';
 import '../styles/components/HeroSection.css';
 
@@ -63,6 +63,25 @@ const HeroSection = () => {
     );
   }, [currentSlide]);
 
+  const goToNext = () => {
+    clearInterval(intervalRef.current);
+    setCurrentSlide(prev => (prev + 1) % heroContent.length);
+    restartInterval();
+  };
+
+  const goToPrev = () => {
+    clearInterval(intervalRef.current);
+    setCurrentSlide(prev => (prev - 1 + heroContent.length) % heroContent.length);
+    restartInterval();
+  };
+
+  const restartInterval = () => {
+    clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % heroContent.length);
+    }, 5000);
+  };
+
   return (
     <section className="hero" ref={heroRef} id="home">
       {/* Background images */}
@@ -78,6 +97,18 @@ const HeroSection = () => {
 
       {/* Overlay */}
       <div className="hero-overlay"></div>
+
+      {/* Navigation Arrows - Hidden on welcome page (index 0) */}
+      {currentSlide !== 0 && (
+        <>
+          <button className="hero-nav hero-nav-left" onClick={goToPrev}>
+            <FaChevronLeft />
+          </button>
+          <button className="hero-nav hero-nav-right" onClick={goToNext}>
+            <FaChevronRight />
+          </button>
+        </>
+      )}
 
       {/* Content */}
       <div className="hero-container">

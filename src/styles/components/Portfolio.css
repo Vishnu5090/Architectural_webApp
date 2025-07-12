@@ -100,17 +100,15 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Default placeholder while lazy loading */
 .portfolio-img {
   width: 100%;
   height: 280px;
   object-fit: cover;
   display: block;
+  background: #f0f0f0;
   transition: transform 0.4s ease;
   z-index: 0;
-}
-
-.portfolio-item:hover .portfolio-img {
-  transform: scale(1.05);
 }
 
 /* Overlay Text */
@@ -160,6 +158,12 @@
 .view-toggle-btn:hover {
   background: #1e365d;
   transform: translateY(-2px);
+}
+
+/* Centering the button container */
+.button-container {
+  text-align: center;
+  margin-top: 2rem;
 }
 
 /* Image Modal Styles */
@@ -302,36 +306,20 @@
   right: 20px;
 }
 
-
-
-
-.view-toggle-btn {
-  display: inline-block; /* Ensure it behaves like a block element */
-  margin: 3rem auto 0; /* Center the button horizontally */
-  padding: 0.75rem 1.75rem;
-  background: var(--primary, #2a4365);
-  color: #fff;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
-  text-align: center; /* Center text inside the button */
+/* Lazy Load Enhancements */
+.lazy-load-image-background.blur > img {
+  filter: blur(10px);
+  transition: filter 0.3s ease-out;
 }
 
-.view-toggle-btn:hover {
-  background: #1e365d;
-  transform: translateY(-2px);
+.lazy-load-image-background.blur.lazy-load-image-loaded > img {
+  filter: blur(0);
 }
 
-/* Centering the button container */
-.button-container {
-  text-align: center; /* Center the button within this container */
-  margin-top: 2rem; /* Add some space above the button */
+.portfolio-item:hover .lazy-load-image-loaded {
+  transform: scale(1.05);
+  transition: transform 0.4s ease;
 }
-
 
 /* Responsive adjustments */
 @media (max-width: 900px) {
@@ -352,13 +340,13 @@
     width: 95vw;
     height: 60vh;
   }
-  
+
   .nav-btn {
     width: 40px;
     height: 40px;
     font-size: 1.2rem;
   }
-  
+
   .portfolio-header h2 {
     font-size: 2rem;
   }
@@ -379,13 +367,13 @@
   .portfolio-img {
     height: 220px;
   }
-  
+
   .image-info-bottom-right {
     padding: 0.6rem 1rem;
     bottom: 15px;
     right: 15px;
   }
-  
+
   .image-info-bottom-right h3 {
     font-size: 1.1rem;
   }
