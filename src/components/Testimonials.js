@@ -6,29 +6,42 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      quote: "The team transformed our outdated office into a modern workspace that boosted employee morale and productivity. Their attention to detail was exceptional.",
-      author: "Sarah Johnson",
-      position: "CEO, TechSolutions Inc.",
+      quote:
+        "Transforming our vision into a stunning, functional villa was no easy task—but Aakaraa Designs nailed it. Every detail, from the grand staircase to the modular kitchen, reflects precision and creativity.",
+      author: "Rohit Narayanan",
+      position: "Entrepreneur",
       rating: 5,
-      project: "Office Renovation"
+      project: "Luxury Villa Interior"
     },
     {
       id: 2,
-      quote: "Our home extension was completed on time and within budget. The architectural drawings were so precise that the builders had no questions during construction.",
-      author: "Michael Chen",
-      position: "Homeowner",
+      quote:
+        "We approached Aakaraa for a full-scale interior overhaul of our 5-floor corporate office. Their spatial planning and modern aesthetics boosted both employee productivity and brand image.",
+      author: "Meera Kulkarni",
+      position: "HR Head, Nexora Technologies",
       rating: 5,
-      project: "Residential Extension"
+      project: "Corporate Office Redesign"
     },
     {
       id: 3,
-      quote: "The 3D visualizations helped us visualize our restaurant concept before we committed to construction. This saved us thousands in potential redesign costs.",
-      author: "Lisa Rodriguez",
-      position: "Owner, Bistro Modern",
-      rating: 4,
-      project: "Commercial Interior"
+      quote:
+        "Aakaraa Designs elevated our apartment interiors with premium finishes and thoughtful layouts. Their model flat presentation helped drive faster sales. Highly professional and detail-oriented.",
+      author: "Sandeep Reddy",
+      position: "MD, Reddy Infra Projects",
+      rating: 5,
+      project: "Builder Collaboration - Model Flat Design"
+    },
+    {
+      id: 4,
+      quote:
+        "Renovating our 90-year-old heritage home was a dream come true. Aakaraa respected the legacy while bringing in smart, elegant solutions. It’s now a timeless blend of old and new.",
+      author: "Anjali Iyer",
+      position: "Classical Artist",
+      rating: 5,
+      project: "Heritage Home Restoration"
     }
   ];
+
 
   return (
     <section className="testimonials" id="testimonials">

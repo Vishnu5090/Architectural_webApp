@@ -33,7 +33,7 @@ const Footer = () => {
           <div className="social-links" aria-label="Social Media Links">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebook /></a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+            <a href="https://www.instagram.com/aakaraadesigns" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
           </div>
         </div>
@@ -90,11 +90,6 @@ const Footer = () => {
       <div className="copyright">
         <div className="container">
           <p>&copy; {new Date().getFullYear()} AAKARAA DESIGNS. All rights reserved.</p>
-          <div className="legal-links" aria-label="Legal Links">
-            <a href="/privacy-policy">Privacy Policy</a>
-            <a href="/terms-of-service">Terms of Service</a>
-            <a href="/sitemap">Sitemap</a>
-          </div>
         </div>
       </div>
     </footer>

@@ -6,6 +6,11 @@ import Apartment from '../assets/Apartment.jpg';
 import Iyyapnthangal from '../assets/Residential/Residential.jpg';
 import Arun from '../assets/Residential/2.jpg';
 import Anand from '../assets/interior/Anand.jpg';
+import sb1 from '../assets/interior/sb1.jpg';
+import image1 from '../assets/interior/image1.png';
+import ed6 from '../assets/Residential/ed6.jpg';
+import ed90 from '../assets/Residential/image2.png';
+import Commercial1 from '../assets/image.png';
 
 const projects = [
   {
@@ -44,6 +49,42 @@ const projects = [
     category: "Residential",
     image: Iyyapnthangal,
   },
+  {
+    id: 7,
+    title: "Apartment",
+    category: "Residential",
+    image: ed6,
+  },
+  {
+    id: 8,
+    title: "complex design",
+    category: "Commercial",
+    image: Commercial1,
+  },
+  {
+    id: 9,
+    title: "Bedroom Design",
+    category: "Residential",
+    image: sb1,
+  },
+  {
+    id: 10,
+    title: "WABI - SABI Style",
+    category: "Residential",
+    image: image1,
+  },
+  {
+    id: 11,
+    title: "Terrace Office",
+    category: "Interior",
+    image: ed90,
+  },
+  {
+    id: 12,
+    title: "Bedroom Design",
+    category: "Residential",
+    image: sb1,
+  }
 ];
 
 const Portfolio = () => {
@@ -157,15 +198,18 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {filteredProjects.length > 6 && (
-          <button 
-            onClick={toggleView} 
-            className="view-toggle-btn" 
-            aria-label={visibleProjects === 6 ? 'View all projects' : 'See less projects'}
-          >
-            {visibleProjects === 6 ? 'View All' : 'See Less'}
-          </button>
-        )}
+       {filteredProjects.length > 6 && (
+  <div className="button-container"> {/* Add this div to center the button */}
+    <button 
+      onClick={toggleView} 
+      className="view-toggle-btn" 
+      aria-label={visibleProjects === 6 ? 'View all projects' : 'See less projects'}
+    >
+      {visibleProjects === 6 ? 'View All' : 'See Less'}
+    </button>
+  </div>
+)}
+
 
         {isModalOpen && (
           <div className="image-modal">
