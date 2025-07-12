@@ -5,7 +5,12 @@ import '../styles/components/Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  
+
+  // Function to handle link click
+  const handleLinkClick = () => {
+    setIsOpen(false); // Close the menu when a link is clicked
+  };
+
   return (
     <nav className="navbar">
       <div className="nav-container">
@@ -14,18 +19,17 @@ const Navbar = () => {
             src={logo} 
             alt="Company Logo" 
             className="logo-image"
-            // Ensures black logo remains black
           />
           <span className="logo-text">AAKARAA DESIGNS</span>
         </div>
         
         <div className={`nav-links ${isOpen ? 'open' : ''}`}>
-          <a href="#home">Home</a>
-          <a href="#portfolio">Portfolio</a>
-          <a href="#services">Services</a>
-          <a href="#about">About Us</a>
-          <a href="#testimonials">Testimonials</a>
-          <a href="#contact">Contact</a>
+          <a href="#home" onClick={handleLinkClick}>Home</a>
+          <a href="#portfolio" onClick={handleLinkClick}>Portfolio</a>
+          <a href="#services" onClick={handleLinkClick}>Services</a>
+          <a href="#about" onClick={handleLinkClick}>About Us</a>
+          <a href="#testimonials" onClick={handleLinkClick}>Testimonials</a>
+          <a href="#contact" onClick={handleLinkClick}>Contact</a>
         </div>
         
         <button 
